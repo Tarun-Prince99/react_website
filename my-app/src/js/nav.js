@@ -1,13 +1,29 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+import { withRouter } from 'react-router-dom';
+import { Nav } from 'react-bootstrap';
 
-import './css/nav.css'
+import '../css/nav.css'
 
-class Nav(){
-
-<div class="topnav">
-  <a class="active" href="#home">About Me</a>
-  <a class = "resume_link" href="#resume">Resume</a>
-  <a class = "projects_link" href="#projects">Projects/Github</a>
-</div>
-
+class NavBar extends Component{
+	render(){
+		return(
+				<Nav class="topnav" variant="pills" defaultActiveKey="/home">
+					<Nav.Item>
+			    		    <Nav.Link a href="/home">Home</Nav.Link>
+			  		</Nav.Item>
+			  		<Nav.Item>
+					    <Nav.Link eventKey="resume">Resume</Nav.Link>
+					</Nav.Item>
+					<Nav.Item>
+					    <Nav.Link eventKey="projects">Projects</Nav.Link>
+					</Nav.Item>
+					<Nav.Item>
+					    <Nav.Link eventKey="contact">Contact</Nav.Link>
+					</Nav.Item>
+				</Nav>
+		);
+	}
 }
+
+export default withRouter(NavBar);
+
